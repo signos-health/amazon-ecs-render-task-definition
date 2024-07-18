@@ -55,11 +55,11 @@ async function run() {
     }
 
     if (cpu) {
-      taskDefContents.cpu = cpu;
+      taskDefContents.cpu = parseInt(cpu);
     }
 
     if (memory) {
-      taskDefContents.memory = memory;
+      taskDefContents.memory = parseInt(memory);
     }
 
     if (executionRoleArn) {
@@ -72,8 +72,8 @@ async function run() {
 
     if (containerPort && hostPort) {
       const portMapping = {
-        containerPort: containerPort,
-        hostPort: hostPort,
+        containerPort: parseInt(containerPort),
+        hostPort: parseInt(hostPort),
         protocol: "tcp"
       };
       // If portMappings array is missing, create it

@@ -147,8 +147,8 @@ describe('Render task definition', () => {
         expect(fs.writeFileSync).toHaveBeenNthCalledWith(1, 'new-task-def-file-name',
             JSON.stringify({
                 family: 'task-def-family-modified',
-                cpu: "2048",
-                memory: "4096",
+                cpu: 2048,
+                memory: 4096,
                 executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
                 taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
                 containerDefinitions: [
@@ -157,8 +157,8 @@ describe('Render task definition', () => {
                         image: "nginx:latest",
                         portMappings: [
                             {
-                                "containerPort": "80",
-                                "hostPort": "80",
+                                "containerPort": 80,
+                                "hostPort": 80,
                                 "protocol": "tcp"
                             }
                         ],
@@ -327,8 +327,8 @@ describe('Render task definition', () => {
                         image: "nginx:latest",
                         portMappings: [
                             {
-                                "containerPort": "80",
-                                "hostPort": "80",
+                                "containerPort": 80,
+                                "hostPort": 80,
                                 "protocol": "tcp"
                             }
                         ],
@@ -363,8 +363,8 @@ describe('Render task definition', () => {
                         ]
                     }
                 ],
-                cpu: "2048",
-                memory: "4096",
+                cpu: 2048,
+                memory: 4096,
                 executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
                 taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
             }, null, 2)
