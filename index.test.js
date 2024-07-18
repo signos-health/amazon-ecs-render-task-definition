@@ -157,8 +157,8 @@ describe('Render task definition', () => {
                         image: "nginx:latest",
                         portMappings: [
                             {
-                                "containerPort": 80,
-                                "hostPort": 80,
+                                "containerPort": "80",
+                                "hostPort": "80",
                                 "protocol": "tcp"
                             }
                         ],
@@ -327,8 +327,8 @@ describe('Render task definition', () => {
                         image: "nginx:latest",
                         portMappings: [
                             {
-                                "containerPort": 80,
-                                "hostPort": 80,
+                                "containerPort": "80",
+                                "hostPort": "80",
                                 "protocol": "tcp"
                             }
                         ],

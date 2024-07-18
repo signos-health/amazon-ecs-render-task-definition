@@ -1255,8 +1255,8 @@ async function run() {
 
     if (containerPort && hostPort) {
       const portMapping = {
-        containerPort: parseInt(containerPort),
-        hostPort: parseInt(hostPort),
+        containerPort: containerPort, 
+        hostPort: hostPort,
         protocol: "tcp"
       };
       // If portMappings array is missing, create it
