@@ -236,6 +236,7 @@ async function run() {
       keep: true,
       discardDescriptor: true
     });
+    console.log(JSON.stringify(taskDefContents, null, 2));
     const newTaskDefContents = JSON.stringify(taskDefContents, null, 2);
     fs.writeFileSync(updatedTaskDefFile.name, newTaskDefContents);
     core.setOutput('task-definition', updatedTaskDefFile.name);
