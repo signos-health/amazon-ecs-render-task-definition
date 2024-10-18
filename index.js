@@ -21,6 +21,8 @@ async function run() {
     const logConfigurationOptions = core.getInput("log-configuration-options", { required: false });
     const dockerLabels = core.getInput('docker-labels', { required: false });
     const command = core.getInput('command', { required: false });
+    const executionRoleArn = core.getInput('executionRoleArn', { required: false });
+    const taskRoleArn = core.getInput('taskRoleArn', { required: false });
 
     //New inputs to fetch task definition 
     const taskDefinitionArn = core.getInput('task-definition-arn', { required: false }) || undefined;
@@ -85,6 +87,14 @@ async function run() {
 
     if (command) {
       containerDef.command = command.split(' ')
+    }
+
+    if (executionRoleArn) {
+      taskDefContents.executionRoleArn = executionRoleArn;
+    }
+
+    if (taskRoleArn) {
+      taskDefContents.taskRoleArn = taskRoleArn;
     }
 
     if (envFiles) {

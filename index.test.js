@@ -47,6 +47,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                                                    // log Configuration Options
             .mockReturnValueOnce('')                                                    // docker labels
             .mockReturnValueOnce('')                                                    // command
+            .mockReturnValueOnce('arn:aws:iam::xxxxxxxxxxxx:role/new')                  // executionRoleArn
+            .mockReturnValueOnce('arn:aws:iam::xxxxxxxxxxxx:role/new')                  // taskRoleArn
             .mockReturnValueOnce('')                                                    // task-definition arn
             .mockReturnValueOnce('')                                                    // task-definition family
             .mockReturnValueOnce('')                                                    // task-definition revision
@@ -199,7 +201,9 @@ describe('Render task definition', () => {
                         name: "sidecar",
                         image: "hello"
                     }
-                ]
+                ],
+                executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
+                taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
             }, null, 2)
         );
         
@@ -220,6 +224,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                                                      // log Configuration Options
             .mockReturnValueOnce('')                                                      // docker labels
             .mockReturnValueOnce('')                                                      // command
+            .mockReturnValueOnce('arn:aws:iam::xxxxxxxxxxxx:role/new')                    // executionRoleArn
+            .mockReturnValueOnce('arn:aws:iam::xxxxxxxxxxxx:role/new')                    // taskRoleArn
             .mockReturnValueOnce('')                                                      // task-definition arn
             .mockReturnValueOnce('')                                                      // task-definition family
             .mockReturnValueOnce('')                                                      // task-definition revision
@@ -264,7 +270,9 @@ describe('Render task definition', () => {
                             }
                         ]
                     }
-                ]
+                ],
+                executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
+                taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
             }, null, 2)
         );
         expect(core.setOutput).toHaveBeenNthCalledWith(1, 'task-definition', 'new-task-def-file-name');
@@ -349,7 +357,9 @@ describe('Render task definition', () => {
                         name: "sidecar",
                         image: "hello"
                     }
-                ]
+                ],
+                executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
+                taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
             }, null, 2)
         );
         expect(mockEcsClient.describeTaskDefinition).toHaveBeenCalledTimes(0);
@@ -428,6 +438,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')
             .mockReturnValueOnce('')
             .mockReturnValueOnce('')
+            .mockReturnValueOnce('')
+            .mockReturnValueOnce('')
             .mockReturnValueOnce('SECRET');
         await run();
 
@@ -496,6 +508,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                           // Docker Labels
             .mockReturnValueOnce('')                           // Command Options 
             .mockReturnValueOnce('')                           // task definition arn
+            .mockReturnValueOnce('')                           // executionRoleArn
+            .mockReturnValueOnce('')                           // taskRoleArn
             .mockReturnValueOnce("task-definition-family")     // task definition family
             .mockReturnValueOnce(10);                          // task definition revision
 
@@ -519,6 +533,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                           // log Configuration Options
             .mockReturnValueOnce('')                           // Docker Labels
             .mockReturnValueOnce('')                           // Command Options 
+            .mockReturnValueOnce('')                           // executionRoleArn
+            .mockReturnValueOnce('')                           // taskRoleArn
             .mockReturnValueOnce('')                           // task definition arn
             .mockReturnValueOnce("task-definition-family")     // task definition family
             .mockReturnValueOnce(0);                           // task definition revision
@@ -544,6 +560,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                           // log Configuration Options
             .mockReturnValueOnce('')                           // Docker Labels
             .mockReturnValueOnce('')                           // Command Options 
+            .mockReturnValueOnce('')                           // executionRoleArn
+            .mockReturnValueOnce('')                           // taskRoleArn
             .mockReturnValueOnce('task-definition-arn')        // task definition arn
             .mockReturnValueOnce('')                           // task definition family
             .mockReturnValueOnce(0);                           // task definition revision
@@ -570,6 +588,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                                                    // log Configuration Options
             .mockReturnValueOnce('')                                                    // Docker Labels
             .mockReturnValueOnce('')                                                    // Command Options 
+            .mockReturnValueOnce('')                                                    // executionRoleArn
+            .mockReturnValueOnce('')                                                    // taskRoleArn
             .mockReturnValueOnce('task-definition-arn')                                 // task definition arn
             .mockReturnValueOnce('')                                                    // task definition family
             .mockReturnValueOnce(0);                                                    //task definition revision
@@ -593,6 +613,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                                                    // log Configuration Options
             .mockReturnValueOnce('')                                                    // Docker Labels
             .mockReturnValueOnce('')                                                    // Command Options 
+            .mockReturnValueOnce('')                                                    // executionRoleArn
+            .mockReturnValueOnce('')                                                    // taskRoleArn
             .mockReturnValueOnce('task-definition-arn')                                 //task definition arn
             .mockReturnValueOnce('task-definition-family')                              //task definition family
             .mockReturnValueOnce(10);                                                   //task definition revision
@@ -616,6 +638,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                           // log Configuration Options
             .mockReturnValueOnce('')                           // Docker Labels
             .mockReturnValueOnce('')                           // Command Options 
+            .mockReturnValueOnce('')                           // executionRoleArn
+            .mockReturnValueOnce('')                           // taskRoleArn
             .mockReturnValueOnce('task-definition-arn')        // task definition arn
             .mockReturnValueOnce('task-definition-family')     // task definition family
             .mockReturnValueOnce(0);                           // task definition revision
@@ -640,6 +664,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('')                           // log Configuration Options
             .mockReturnValueOnce('')                           // Docker Labels
             .mockReturnValueOnce('')                           // Command Options 
+            .mockReturnValueOnce('')                           // executionRoleArn
+            .mockReturnValueOnce('')                           // taskRoleArn
             .mockReturnValueOnce('')                           // task definition arn
             .mockReturnValueOnce('')                           // task definition family
             .mockReturnValueOnce(10);                          // task definition revision
@@ -659,7 +685,10 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('arn:aws:s3:::s3_bucket_name/envfile_object_name.env')
             .mockReturnValueOnce('awslogs')
             .mockReturnValueOnce('awslogs-create-group=true\nawslogs-group=/ecs/web\nawslogs-region=us-east-1\nawslogs-stream-prefix=ecs')
-            .mockReturnValueOnce('key1=value1\nkey2=value2');
+            .mockReturnValueOnce('key1=value1\nkey2=value2')
+            .mockReturnValueOnce('')                                                      // command
+            .mockReturnValueOnce('arn:aws:iam::xxxxxxxxxxxx:role/new')                    // executionRoleArn
+            .mockReturnValueOnce('arn:aws:iam::xxxxxxxxxxxx:role/new');                    // taskRoleArn
 
         await run();
 
@@ -734,7 +763,9 @@ describe('Render task definition', () => {
                         name: "sidecar",
                         image: "hello"
                     }
-                ]
+                ],
+                executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
+                taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
             }, null, 2)
         );
     });
@@ -910,7 +941,9 @@ describe('Render task definition', () => {
                         name: "sidecar",
                         image: "hello"
                     }
-                ]
+                ],
+                executionRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
+                taskRoleArn: "arn:aws:iam::xxxxxxxxxxxx:role/new",
             }, null, 2)
         );
     });
